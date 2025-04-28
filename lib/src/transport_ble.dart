@@ -18,9 +18,9 @@ class TransportBLE implements ProvTransport {
   static const PROV_BLE_SERVICE = '021a9004-0382-4aea-bff4-6b3f1c5adfb4';
   static const PROV_BLE_EP = {
     'prov-scan': 'ff50',
-    'prov-session': '0001',
-    'prov-config': '0002',
-    'proto-ver': '0003',
+    'prov-session': 'ff51',
+    'prov-config': 'ff52',
+    'proto-ver': 'ff53',
     'custom-data': 'ff54',
   };
 
@@ -88,8 +88,8 @@ class TransportBLE implements ProvTransport {
             var characteristics = services[i].characteristics;
             for (BluetoothCharacteristic c in characteristics) {
               if (c.uuid.toString() == nuLookup[epName]) {
-                // log("WAIT FOR 300 MILLISECONDS");
-                // await Future.delayed(const Duration(milliseconds: 300));
+                log("WAIT FOR 500 MILLISECONDS");
+                await Future.delayed(const Duration(milliseconds: 500));
                 log("WRITING DATA $i DEVICEID: ${c.remoteId.toString()} DEVICE UUID: ${c.uuid.toString()} SERVICE UUID: ${c.serviceUuid.toString()} DATA: $data");
                 await c.write(data, withoutResponse: false);
               }
@@ -100,15 +100,16 @@ class TransportBLE implements ProvTransport {
     }
 
     log("WRITE DATA COMPLETE, NOW READING");
-    late Uint8List readResponse;
+    late Uint8List readResponse = Uint8List(0);
+
     log("REVERTED DATA TYPE OF READRESPONSE VARIABLE");
     for (int i = 0; i < services.length; i++) {
       if (services[i].uuid.toString() == serviceUUID) {
         var characteristics = services[i].characteristics;
         for (BluetoothCharacteristic c in characteristics) {
           if (c.uuid.toString() == nuLookup[epName] && c.properties.read) {
-            // log("WAIT FOR 300 MILLISECONDS");
-            // await Future.delayed(const Duration(milliseconds: 300));
+            log("WAIT FOR 500 MILLISECONDS");
+            await Future.delayed(const Duration(milliseconds: 500));
             log("READ CHARACTERISTIC ${c.uuid.toString()} ${nuLookup[epName]}");
             List<int> value = await c.read();
             log("VALUE $value");
@@ -118,7 +119,7 @@ class TransportBLE implements ProvTransport {
         }
       }
     }
-    log("READ DATA COMPLETE, RESPONSE $readResponse");
+    log("READ DATA COMPLETE, RESPONSE => $readResponse");
     return readResponse;
   }
 

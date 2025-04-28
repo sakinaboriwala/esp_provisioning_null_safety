@@ -49,18 +49,18 @@ class WifiBloc extends Bloc<WifiEvent, WifiState> {
     yield WifiStateScanning();
 
     try {
-      // var listWifi = await prov.startScanWiFi();
-      // List<Map<String, dynamic>> mapListWifi = [];
-      // listWifi.forEach((element) {
-      //   mapListWifi.add({
-      //     'ssid': element.ssid,
-      //     'rssi': element.rssi,
-      //     'auth': element.private.toString() != 'Open'
-      //   });
-      // });
+      var listWifi = await prov?.startScanWiFi();
+      List<Map<String, dynamic>> mapListWifi = [];
+      listWifi?.forEach((element) {
+        mapListWifi.add({
+          'ssid': element.ssid,
+          'rssi': element.rssi,
+          'auth': element.private.toString() != 'Open'
+        });
+      });
 
-      // yield WifiStateLoaded(wifiList: mapListWifi);
-      // log.v('Wifi $listWifi');
+      yield WifiStateLoaded(wifiList: mapListWifi);
+      log.v('Wifi $listWifi');
     } catch (e) {
       log.e('Error scan WiFi network $e');
       yield WifiStateError('Error scan WiFi network');
@@ -70,7 +70,7 @@ class WifiBloc extends Bloc<WifiEvent, WifiState> {
   Stream<WifiState> _mapProvisioningToState(
       WifiEventStartProvisioning event) async* {
     yield WifiStateProvisioning();
-    await prov?.sendWifiConfig(ssid: "TP-LINK_20E4", password: "19701963");
+    await prov?.sendWifiConfig(ssid: event.ssid, password: event.password);
     await prov?.applyWifiConfig();
     await Future.delayed(Duration(seconds: 1));
     yield WifiStateProvisioned();
