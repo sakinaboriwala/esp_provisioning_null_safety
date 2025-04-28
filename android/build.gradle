@@ -1,16 +1,16 @@
 group 'com.tuanpm.esp_provisioning'
 version '1.0'
 
-buildscript {
-    repositories {
-        google()
-        jcenter()
-    }
+// buildscript {
+//     repositories {
+//         google()
+//         jcenter()
+//     }
 
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
-    }
-}
+//     dependencies {
+//         classpath 'com.android.tools.build:gradle:3.5.0'
+//     }
+// }
 
 rootProject.allprojects {
     repositories {

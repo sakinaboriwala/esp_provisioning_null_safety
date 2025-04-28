@@ -5,7 +5,8 @@ class WifiDialog extends StatefulWidget {
   final String wifiName;
   final Function(String ssid, String password)? onSubmit;
 
-  const WifiDialog({Key? key, required this.wifiName, this.onSubmit}) : super(key: key);
+  const WifiDialog({Key? key, required this.wifiName, this.onSubmit})
+      : super(key: key);
 
   @override
   _WifiDialogState createState() => _WifiDialogState();
@@ -41,7 +42,7 @@ class _WifiDialogState extends State<WifiDialog> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Password for WiFi',
-                    style: Theme.of(context).textTheme.bodyText2),
+                    style: Theme.of(context).textTheme.bodyMedium),
                 const SizedBox(
                   height: 10.0,
                 ),
@@ -54,7 +55,7 @@ class _WifiDialogState extends State<WifiDialog> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(5),
                             borderSide: BorderSide(
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.secondary,
                               width: 1,
                             )))),
                 const SizedBox(

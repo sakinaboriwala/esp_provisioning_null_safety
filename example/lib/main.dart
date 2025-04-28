@@ -1,6 +1,7 @@
+import 'package:esp_provisioning_example/esp_provision_example/ble_screen/ble_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'esp_provision_example2/ble_screen/ble_screen.dart';
+// import 'esp_provision_example2/ble_screen/ble_screen.dart';
 
 // import 'esp_provision_example/ble_screen/ble_screen.dart';
 
@@ -104,9 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-            
             MaterialButton(
               color: Colors.redAccent,
               elevation: 5,
@@ -117,13 +117,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => const BleScreen()));
+                        builder: (BuildContext context) => BleScreen()));
               },
               child: Text(
                 'Start Provisioning',
                 style: Theme.of(context)
                     .textTheme
-                    .headline6
+                    .titleLarge
                     ?.copyWith(color: Colors.white),
               ),
             )

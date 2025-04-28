@@ -1,0 +1,41 @@
+PODS:
+  - cryptography_flutter (0.2.0):
+    - Flutter
+  - esp_provisioning (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - flutter_blue_plus_darwin (0.0.2):
+    - Flutter
+    - FlutterMacOS
+  - permission_handler_apple (9.1.1):
+    - Flutter
+
+DEPENDENCIES:
+  - cryptography_flutter (from `.symlinks/plugins/cryptography_flutter/ios`)
+  - esp_provisioning (from `.symlinks/plugins/esp_provisioning/ios`)
+  - Flutter (from `Flutter`)
+  - flutter_blue_plus_darwin (from `.symlinks/plugins/flutter_blue_plus_darwin/darwin`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+
+EXTERNAL SOURCES:
+  cryptography_flutter:
+    :path: ".symlinks/plugins/cryptography_flutter/ios"
+  esp_provisioning:
+    :path: ".symlinks/plugins/esp_provisioning/ios"
+  Flutter:
+    :path: Flutter
+  flutter_blue_plus_darwin:
+    :path: ".symlinks/plugins/flutter_blue_plus_darwin/darwin"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+
+SPEC CHECKSUMS:
+  cryptography_flutter: 381bdacc984abcfbe3ca45ef7c76566ff061614c
+  esp_provisioning: f23d52f966f1de0f66007d805220abb52f61a2f1
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_blue_plus_darwin: 904ed52825285a15f60e9d90312337a09f11a785
+  permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
+
+PODFILE CHECKSUM: c4c93c5f6502fe2754f48404d3594bf779584011
+
+COCOAPODS: 1.15.2
