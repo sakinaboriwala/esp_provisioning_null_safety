@@ -45,6 +45,39 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>wifi-prov.local</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSExceptionMinimumTLSVersion</key>
+				<string>1.0</string>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This App needs bluetooth when in use Access to connect to the Smart Plug</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>BluetoothPeripheralUsage Permission required to connect the Smart Plug</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera permission is required for barcode scanning.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location Permission required to connect the Smart Plug</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location Permission required to connect the Smart Plug</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location Permission required to connect the Smart Plug</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 </dict>
